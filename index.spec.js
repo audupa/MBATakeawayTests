@@ -25,11 +25,11 @@ describe("MBATakeawayTests", function () {
         return browser.ignoreSynchronization = true;
     });
 
-     /*  it("should register to MBATakeaway", function () {
+    it("should register to MBATakeaway", function () {
              browser.driver.get('http://localhost:8000/accounts/register/##school-stats');
              var x = getTime();
              browser.sleep(4000);
-             ptor.findElement(protractor.By.id('testaccordion')).click();
+			 element.all(by.repeater('x in availableSchools')).get(1).click();
              browser.sleep(4000);
              browser.driver.findElement(by.name('firstname')).sendKeys('testUserFirstName'+x);
              browser.driver.findElement(by.name('lastname')).sendKeys('testUserLastName'+x);
@@ -44,7 +44,7 @@ describe("MBATakeawayTests", function () {
              browser.sleep(4000);
              expect(browser.driver.getCurrentUrl()).toMatch(/\/profile/);
          });
-*/
+
         it("should login to MbaTakeaway", function () {
             browser.driver.get('http://localhost:8000');
             browser.driver.findElement(by.name('Username')).sendKeys('ravi');
@@ -81,7 +81,7 @@ describe("MBATakeawayTests", function () {
             //expect the leaderboard
             expect(element(by.id('leaderBoardButton')).isPresent()).toBe(true);
 
-        });
+        }); 
 
         it("edit the course name", function () {
             //add a comment
@@ -95,7 +95,7 @@ describe("MBATakeawayTests", function () {
         });
 
 
-       it("load the profile page and test the edit profile save option", function () {
+        it("load the profile page and test the edit profile save option", function () {
             //do the login here
             browser.driver.get('http://localhost:8000/profile');
             expect(browser.element(by.id('edit-profile')).isPresent()).toBe(true);
@@ -106,6 +106,6 @@ describe("MBATakeawayTests", function () {
             elem.click().then(
             testSaveProfileChanges()
             );
-        });
+        }); 
   });
 });
